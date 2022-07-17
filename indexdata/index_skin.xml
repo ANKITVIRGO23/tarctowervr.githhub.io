@@ -1,0 +1,1703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.19-pr16">
+
+    
+  <!-- Spot Style - Default Point Spot Style -->
+
+
+  <style name="IconDefaultPointSpotStyle"
+         url="%FIRSTXML%/spots/hotspot_plan_sequence_user_defaultpoint01.png"
+         visible="false"
+         frame="0"
+         lastframe="9"
+         framewidth="67"
+         frameheight="67"
+         stopspotsequence="false"
+         crop="0|0|67|67"
+         edge="center"
+         zoom="true"
+
+         onloaded="startspotanimation(0.1);if(scene[get(xml.scene)].planar,if(zoom,set(zoom, false);););"
+         onhover="onhoverIconDefaultPointSpotStyle"
+         onover="onoverIconDefaultPointSpotStyle"
+         onout="onoutIconDefaultPointSpotStyle"
+
+         height="50"
+         width="50"
+         />
+  <action name="onhoverIconDefaultPointSpotStyle">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoverIconDefaultPointSpotStyle">
+
+
+pauseautorotation(forcehotspot);
+
+  </action>
+  <action name="onoutIconDefaultPointSpotStyle">
+    hideTooltip();
+
+
+resumeautorotation(forcehotspot);
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - Default Point Spot Style -->
+
+
+  <style name="IconDefaultPointSpotStyle"
+         url="%FIRSTXML%/spots/hotspot_plan_sequence_user_defaultpoint011.png"
+         visible="false"
+         frame="0"
+         lastframe="9"
+         framewidth="67"
+         frameheight="67"
+         stopspotsequence="false"
+         crop="0|0|67|67"
+         edge="center"
+         zoom="true"
+
+         onloaded="startspotanimation(0.1);if(scene[get(xml.scene)].planar,if(zoom,set(zoom, false);););"
+         onhover="onhoverIconDefaultPointSpotStyle"
+         onover="onoverIconDefaultPointSpotStyle"
+         onout="onoutIconDefaultPointSpotStyle"
+
+         height="50"
+         width="50"
+         />
+  <action name="onhoverIconDefaultPointSpotStyle">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoverIconDefaultPointSpotStyle">
+
+
+pauseautorotation(forcehotspot);
+
+  </action>
+  <action name="onoutIconDefaultPointSpotStyle">
+    hideTooltip();
+
+
+resumeautorotation(forcehotspot);
+
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Sans Control Bar -->
+<!-- id : SansControlBar -->
+<!-- ********** -->
+
+  <krpano SansControlBarbarbuilt="false" SansControlBarbackgroundwidthwhenclosed="0" SansControlBarbackgroundwidthwhenopened="0" SansControlBarIsOpened="false" />
+  <events name="SansControlBarevents" 
+    onxmlcomplete="SansControlBarbuildMenuBar();" 
+
+
+    keep="true" />
+
+
+
+  <action name="SansControlBarbuildMenuBar">
+    ifnot (SansControlBarbarbuilt, SansControlBarbuildMenu(); set(SansControlBarbarbuilt, true););
+  </action>
+
+  <style name="SansControlBar_btn_style"
+         keep="true"
+         edge="right"
+         align="right"
+         x="0" y="0"
+         width="40" height="40"
+         crop="0|0|60|60"
+         onovercrop="0|60|60|60"
+         ondowncrop="0|120|60|60"
+         onhover="showTooltip('plugin', SansControlBarmenuTooltipStyle, bottom);"
+         onout="hideTooltip();"
+         />
+  <style name="SansControlBar_btn_style_off"
+         keep="true"
+         edge="right"
+         align="right"
+         x="0" y="0"
+         width="40" height="40"
+         onhover="showTooltip('plugin', SansControlBarmenuTooltipStyle, bottom);"
+         onout="hideTooltip();"
+         />
+
+  <layer name="SansControlBar_menu_bg"
+         keep="true"
+         type="container"
+         zorder="1"
+         width="40"
+         height="40"
+         align="bottom"
+         x="0" y="10"
+         maskchildren="true"
+         rotate="0"
+         visible="false"
+         >
+
+    <layer name="SansControlBarbtn_gyroscope_off"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_gyroscope.png"
+            style="SansControlBar_btn_style"
+            onclick="disableGyroscope();
+"
+            devices="html5"
+            tooltip="SansControlBargyroOffTip"
+            visible="false"
+            />
+    <layer name="SansControlBarbtn_gyroscope_on"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_gyroscope.png"
+            style="SansControlBar_btn_style"
+            onclick="enableGyroscope();
+"
+            devices="html5"
+            tooltip="SansControlBargyroOnTip"
+            visible="false"
+            />
+    <layer name="SansControlBarbtn_gyroscope_not"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_gyroscope_off.png"
+            style="SansControlBar_btn_style_off"
+            enabled="true"
+            capture="false"
+            devices="html5"
+            tooltip="SansControlBargyroNotTip"
+            visible="false"
+            />
+
+    <layer name="SansControlBarbtn_enter_vr"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_vr_mode.png"
+            style="SansControlBar_btn_style"
+            onclick="if(scene[get(xml.scene)].full360 AND disableCurrentSceneVrConservation !== true,
+    js(accessWebVr(get(xml.scene),get(videoscenestarttime)));
+,
+    js(accessWebVr(null));
+);"
+            tooltip="SansControlBarenterVRTip"
+            visible="false"
+            devices="html5"
+            />
+    <layer name="SansControlBarbtn_enter_vr_not"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_vr_mode_off.png"
+            style="SansControlBar_btn_style"
+            tooltip="SansControlBarenterVRNotTip"
+            enabled="true"
+            capture="false"
+            visible="false"
+            devices="html5"
+            />
+
+    <layer name="SansControlBarbtn_ctrlmode_move_to"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_move_to.png"
+            style="SansControlBar_btn_style"
+            tooltip="SansControlBarctrlmodeMoveTip"
+            onclick="setControlModeMoveTo();
+"
+            visible="false"
+            devices="desktop"
+            />
+    <layer name="SansControlBarbtn_ctrlmode_drag_to"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_drag_to.png"
+            style="SansControlBar_btn_style"
+            tooltip="SansControlBarctrlmodeDragTip"
+            onclick="setControlModeDragTo();
+"
+            visible="false"
+            devices="desktop"
+            />
+
+    <layer name="SansControlBarbtn_in"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_zoom_in.png"
+            ondown="viewControlZoomIn(false);"
+            onup="viewControlZoomStop();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarzoomInTip"
+            devices="desktop"
+            />
+    <layer name="SansControlBarbtn_out"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_zoom_out.png"
+            ondown="viewControlZoomOut(false);
+"
+            onup="viewControlZoomStop();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarzoomOutTip"
+            devices="desktop"
+            />
+
+    <layer name="SansControlBarbtn_left"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_move_left.png"
+            ondown="viewControlMoveLeft(false);
+"
+            onup="viewControlMoveHoriStop();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarmoveLeftTip"
+            devices="desktop"
+            />
+    <layer name="SansControlBarbtn_right"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_move_right.png"
+            ondown="viewControlMoveRight(false);
+"
+            onup="viewControlMoveHoriStop();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarmoveRightTip"
+            devices="desktop"
+            />
+
+    <layer name="SansControlBarbtn_up"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_move_up.png"
+            ondown="viewControlMoveUp(false);
+"
+            onup="viewControlMoveVertStop();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarmoveUpTip"
+            devices="desktop"
+            />
+    <layer name="SansControlBarbtn_down"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_move_down.png"
+            ondown="viewControlMoveDown(false);
+"
+            onup="viewControlMoveVertStop();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarmoveDownTip"
+            devices="desktop"
+            />
+
+
+
+    <layer name="SansControlBarbtn_prev_pano"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_previous_scene.png"
+            onclick="loadPreviousScene();
+"
+            style="SansControlBar_btn_style"
+            tooltip="SansControlBarprevSceneTip"
+            visible="false"
+            />
+    <layer name="SansControlBarbtn_next_pano"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_next_scene.png"
+            onclick="loadNextScene();
+"
+            style="SansControlBar_btn_style"
+            tooltip="SansControlBarnextSceneTip"
+            visible="false"
+            />
+
+
+
+    <layer name="SansControlBarbtn_openfs"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_enter_fs.png"
+            onclick="enterFullscreen();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            devices="fullscreensupport"
+            tooltip="SansControlBaropenFsTip"
+            />
+    <layer name="SansControlBarbtn_closefs"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_close_fs.png"
+            onclick="exitFullscreen();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            devices="fullscreensupport"
+            tooltip="SansControlBarcloseFsTip"
+            />
+
+    <layer name="SansControlBarbtn_autorotate_on"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_start_autorotation.png"
+            onclick="resumeautorotation();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarautorotateOnTip"
+            />
+    <layer name="SansControlBarbtn_autorotate_off"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_stop_autorotation.png"
+            onclick="pauseautorotation();
+"
+            style="SansControlBar_btn_style"
+            visible="false"
+            tooltip="SansControlBarautorotateOffTip"
+            />
+
+
+
+    <layer name="SansControlBarbtn_display_help"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_help.png"
+            onclick="SansControlBardisplayHelp();"
+            style="SansControlBar_btn_style"
+            devices="desktop"
+            visible="false"
+            tooltip="SansControlBardisplayHelpTip"
+            />
+    <layer name="SansControlBarbtn_close_help"
+            url="%FIRSTXML%/graphics/sans controlbar/btn_help.png"
+            onclick="SansControlBarcloseHelp();"
+            style="SansControlBar_btn_style"
+            visible="false"
+            devices="desktop"
+            tooltip="SansControlBarhideHelpTip"
+            />
+
+
+
+    <layer name="SansControlBarbtn_hidecontrols"
+           url="%FIRSTXML%/graphics/sans controlbar/btn_hide_controls.png"
+           style="SansControlBar_btn_style"
+           onclick="SansControlBarhideMenuControls();hideTourControls();
+"
+           visible="false"
+           tooltip="SansControlBarhideControlsTip"
+           />
+    <layer name="SansControlBarbtn_showcontrols"
+           url="%FIRSTXML%/graphics/sans controlbar/btn_show_controls.png"
+           style="SansControlBar_btn_style"
+           onclick="SansControlBarshowMenuControls();showTourControls();
+"
+           tooltip="SansControlBardisplayControlsTip"
+           visible="false"
+           />
+ </layer>
+
+
+
+<events name="SansControlBarvravailableevent"
+		onvravailable="SansControlBarupdateVrButtonsAvailability();"
+		onvrunavailable="SansControlBarupdateVrButtonsAvailability();"
+		keep="true" devices="html5" />
+	<krpano SansControlBarmenuvravailable="false" />
+	<action name="SansControlBarupdateVrButtonsAvailability">
+		if (tour_vrdevices,
+			set(SansControlBarmenuvravailable, true);
+		,
+			set(SansControlBarmenuvravailable, false);
+		);
+		SansControlBarupdateVrButtons();
+	</action>
+	<action name="SansControlBarHideVrButtons">
+		set(layer[SansControlBarbtn_enter_vr].visible, false);
+		if('%1' == 'true' AND plugin[ptpvrmode],
+			set(layer[SansControlBarbtn_enter_vr_not].visible, true);
+		,
+			set(layer[SansControlBarbtn_enter_vr_not].visible, false);
+		);
+	</action>
+	<action name="SansControlBarShowVrButtons">
+		if (SansControlBarmenuvravailable,
+			set(layer[SansControlBarbtn_enter_vr].visible, true);
+			set(layer[SansControlBarbtn_enter_vr_not].visible, false);
+		,
+			SansControlBarHideVrButtons(true);
+		);
+	</action>
+	<action name="SansControlBarupdateVrButtons">
+	if (tour_vrdevices,
+		if (SansControlBarIsOpened,
+			SansControlBarShowVrButtons();
+		,
+			SansControlBarHideVrButtons();
+		);
+	,
+		if (SansControlBarIsOpened,
+			SansControlBarHideVrButtons(true);
+		,
+			SansControlBarHideVrButtons();
+		);
+	);
+	</action>
+
+  <events name="SansControlBargyroscopeavailableevent"
+          ongyroscopeavailable="SansControlBarupdateGyroscopeButtonsAvailability();"
+          ongyroscopeunavailable="SansControlBarupdateGyroscopeButtonsAvailability();"
+          ongyroscopeon="SansControlBarenableGyroscopeButtons(true);"
+          ongyroscopeoff="SansControlBarenableGyroscopeButtons(false);"
+          keep="true" devices="html5" />
+  <krpano SansControlBarmenugyroscopeavailable="false" SansControlBarmenugyroscopeenabled="false"/>
+  <action name="SansControlBarupdateGyroscopeButtonsAvailability">
+    if (tour_gyroscopedevices,
+      set(SansControlBarmenugyroscopeavailable, true);
+      SansControlBarupdateGyroscopeButtons();
+    ,
+      set(SansControlBarmenugyroscopeavailable, false);
+      SansControlBarupdateGyroscopeButtons();
+    );
+  </action>
+  <action name="SansControlBarenableGyroscopeButtons">
+    if (tour_gyroscopedevices,
+      set(SansControlBarmenugyroscopeenabled, %1);
+      SansControlBarupdateGyroscopeButtons();
+    );
+  </action>
+	<action name="SansControlBarHideGyroscopeButtons">
+		set(layer[SansControlBarbtn_gyroscope_off].visible, false);
+		set(layer[SansControlBarbtn_gyroscope_on].visible, false);
+		if('%1' == 'true' AND plugin[gyroscope],
+			set(layer[SansControlBarbtn_gyroscope_not].visible, true);
+		,
+			set(layer[SansControlBarbtn_gyroscope_not].visible, false);
+		);
+	</action>
+	<action name="SansControlBarShowGyroscopeButtons">
+		if (SansControlBarmenugyroscopeavailable,
+			if (SansControlBarmenugyroscopeenabled,
+				set(layer[SansControlBarbtn_gyroscope_off].visible, true);
+				set(layer[SansControlBarbtn_gyroscope_on].visible, false);
+			,
+				set(layer[SansControlBarbtn_gyroscope_off].visible, false);
+				set(layer[SansControlBarbtn_gyroscope_on].visible, true);
+			);
+			set(layer[SansControlBarbtn_gyroscope_not].visible, false);
+		,
+			SansControlBarHideGyroscopeButtons(true);
+		);
+	</action>
+	<action name="SansControlBarupdateGyroscopeButtons">
+	if (tour_gyroscopedevices,
+		if (SansControlBarIsOpened,
+			SansControlBarShowGyroscopeButtons();
+		,
+			SansControlBarHideGyroscopeButtons();
+		);
+	,
+		if (SansControlBarIsOpened,
+			SansControlBarHideGyroscopeButtons(true);
+		,
+			SansControlBarHideGyroscopeButtons();
+		);
+	);
+	</action>
+
+
+	<events name="SansControlBarcontrolmodechangedevent" 
+		oncontrolmodechanged="SansControlBarupdateControlModeButtons();" 
+		keep="true" />
+	<action name="SansControlBarHideControlModeButtons">
+		set(layer[SansControlBarbtn_ctrlmode_move_to].visible, false);
+		set(layer[SansControlBarbtn_ctrlmode_drag_to].visible, false);
+	</action>
+	<action name="SansControlBarShowControlModeButtons">
+		if (tour_controlmodemousetype == "moveto",
+			set(layer[SansControlBarbtn_ctrlmode_drag_to].visible, true);
+			set(layer[SansControlBarbtn_ctrlmode_move_to].visible, false);
+		,
+			set(layer[SansControlBarbtn_ctrlmode_move_to].visible, true);
+			set(layer[SansControlBarbtn_ctrlmode_drag_to].visible, false);
+		);
+	</action>
+	<action name="SansControlBarupdateControlModeButtons">
+	if (device.desktop,
+		if (SansControlBarIsOpened,
+			SansControlBarShowControlModeButtons();
+		,
+			SansControlBarHideControlModeButtons();
+		);
+	,
+		SansControlBarHideControlModeButtons();
+	);
+	</action>
+
+
+  <action name="SansControlBarhideMenuControls">
+    set(SansControlBarIsOpened, false);
+    set(layer[SansControlBarbtn_hidecontrols].visible, false);
+    set(layer[SansControlBarbtn_showcontrols].visible, true);
+if (scene.count GT 1,
+	set(layer[SansControlBarbtn_next_pano].visible, false);
+	set(layer[SansControlBarbtn_prev_pano].visible, false);
+);
+
+
+if (device.desktop,
+	set(layer[SansControlBarbtn_in].visible, false);
+	set(layer[SansControlBarbtn_out].visible, false);
+);
+if (device.desktop,
+	set(layer[SansControlBarbtn_up].visible, false);
+	set(layer[SansControlBarbtn_down].visible, false);
+);
+if (device.desktop,
+	set(layer[SansControlBarbtn_left].visible, false);
+	set(layer[SansControlBarbtn_right].visible, false);
+);
+	SansControlBarupdateFullscreenButtons();
+	SansControlBarupdateHelpButtons();
+
+
+	SansControlBarupdateAutorotationButtons();
+
+	SansControlBarupdateGyroscopeButtons();
+
+	SansControlBarupdateControlModeButtons();
+
+	SansControlBarupdateVrButtons();
+
+
+
+	set(layer[SansControlBar_menu_bg].width, get(SansControlBarbackgroundwidthwhenclosed));
+
+	set(layer[SansControlBar_menu_bg].visible, true);
+  </action>
+  <action name="SansControlBarshowMenuControls">
+    set(SansControlBarIsOpened, true);
+    set(layer[SansControlBarbtn_hidecontrols].visible, true);
+    set(layer[SansControlBarbtn_showcontrols].visible, false);
+	set(layer[SansControlBar_menu_bg].visible, true);
+if (scene.count GT 1,
+	set(layer[SansControlBarbtn_next_pano].visible, true);
+	set(layer[SansControlBarbtn_prev_pano].visible, true);
+);
+
+
+if (device.desktop,
+	set(layer[SansControlBarbtn_in].visible, true);
+	set(layer[SansControlBarbtn_out].visible, true);
+);
+if (device.desktop,
+	set(layer[SansControlBarbtn_up].visible, true);
+	set(layer[SansControlBarbtn_down].visible, true);
+);
+if (device.desktop,
+	set(layer[SansControlBarbtn_left].visible, true);
+	set(layer[SansControlBarbtn_right].visible, true);
+);
+	SansControlBarupdateFullscreenButtons();
+	SansControlBarupdateHelpButtons();
+
+
+	SansControlBarupdateAutorotationButtons();
+
+	SansControlBarupdateGyroscopeButtons();
+	SansControlBarupdateVrButtons();
+
+	SansControlBarupdateControlModeButtons();
+
+
+
+    set(layer[SansControlBar_menu_bg].width, get(SansControlBarbackgroundwidthwhenopened));
+  </action>
+
+  <layer name="SansControlBarhelpScreenBg"
+         align="center"
+         keep="true"
+         onclick="SansControlBarcloseHelp();"
+         url="%FIRSTXML%/graphics/sans controlbar/help_screen_bg.png"
+         visible="false"
+         rotate="-90"
+         height="50%"
+         width="prop"
+         zorder="97"
+         x="100%" />
+  <layer name="SansControlBarhelpScreenFg"
+         align="center"
+         keep="true"
+         onclick="SansControlBarcloseHelp();"
+         url="%FIRSTXML%/graphics/sans controlbar/help_screen_fg.png"
+         height="50%"
+         width="prop"
+         visible="false"
+         rotate="90"
+         zorder="98"
+         x="-100%"
+         displayed="false" />
+  <action name="SansControlBardisplayHelp">
+  if (device.desktop,
+    set(layer[SansControlBarhelpScreenFg].displayed,true);
+    set(layer[SansControlBarhelpScreenBg].visible,true);
+    set(layer[SansControlBarhelpScreenFg].visible,true);
+    tween(layer[SansControlBarhelpScreenFg].rotate,0, 1);
+    tween(layer[SansControlBarhelpScreenFg].x,0, 1);
+    tween(layer[SansControlBarhelpScreenBg].rotate,0, 1);
+    tween(layer[SansControlBarhelpScreenBg].x,0, 1);
+    SansControlBarupdateHelpButtons();
+  );
+  </action>
+  <action name="SansControlBarcloseHelp">
+  if (device.desktop,
+    set(layer[SansControlBarhelpScreenFg].displayed,false);
+    tween(layer[SansControlBarhelpScreenFg].rotate,  90, 1, easeOutQuad, set(layer[SansControlBarhelpScreenFg].visible,false););
+    tween(layer[SansControlBarhelpScreenFg].x, -100%, 1);
+    tween(layer[SansControlBarhelpScreenBg].rotate, -90, 1, easeOutQuad, set(layer[SansControlBarhelpScreenBg].visible,false););
+    tween(layer[SansControlBarhelpScreenBg].x, 100%, 1);
+    SansControlBarupdateHelpButtons();
+  );
+  </action>
+	<action name="SansControlBarHideHelpButtons">
+		set(layer[SansControlBarbtn_display_help].visible, false);
+		set(layer[SansControlBarbtn_close_help].visible, false);
+	</action>
+	<action name="SansControlBarShowHelpButtons">
+		if (layer[SansControlBarhelpScreenFg].displayed,
+			set(layer[SansControlBarbtn_close_help].visible, true);
+			set(layer[SansControlBarbtn_display_help].visible, false);
+		,
+			set(layer[SansControlBarbtn_display_help].visible, true);
+			set(layer[SansControlBarbtn_close_help].visible, false);
+		);
+	</action>
+	<action name="SansControlBarupdateHelpButtons">
+	if (device.desktop,
+		if (SansControlBarIsOpened,
+			SansControlBarShowHelpButtons();
+		,
+			SansControlBarHideHelpButtons();
+		);
+	,
+		SansControlBarHideHelpButtons();
+	);
+	</action>
+
+
+
+
+  <events name="SansControlBarmenufullscreenchangeevent"
+          onenterfullscreen="SansControlBarupdateFullscreenButtons();"
+          onexitfullscreen="SansControlBarupdateFullscreenButtons();"
+          keep="true"/>
+	<action name="SansControlBarHideFullscreenButtons">
+		set(layer[SansControlBarbtn_openfs].visible , false);
+		set(layer[SansControlBarbtn_closefs].visible, false);
+	</action>
+	<action name="SansControlBarShowFullscreenButtons">
+		if (device.fullscreensupport,
+			if(tour_fullscreen,
+				set(layer[SansControlBarbtn_openfs].visible , false);
+				set(layer[SansControlBarbtn_closefs].visible, true);
+			,
+				set(layer[SansControlBarbtn_openfs].visible ,true);
+				set(layer[SansControlBarbtn_closefs].visible,false);
+			);
+		,
+			SansControlBarHideFullscreenButtons();
+		);
+	</action>
+	<action name="SansControlBarupdateFullscreenButtons">
+		if (SansControlBarIsOpened,
+			SansControlBarShowFullscreenButtons();
+		,
+			SansControlBarHideFullscreenButtons();
+		);
+	</action>
+
+	<events name="SansControlBarAutorotationEvents"
+		onstartautorotation="SansControlBarupdateAutorotationButtons();"
+		onresumeautorotation="SansControlBarupdateAutorotationButtons();"
+		onstopautorotation="SansControlBarupdateAutorotationButtons();"
+		onpauseautorotation="SansControlBarupdateAutorotationButtons();"
+		keep="true"/>
+	<action name="SansControlBarHideAutorotationButtons">
+		set(layer[SansControlBarbtn_autorotate_off].visible, false);
+		set(layer[SansControlBarbtn_autorotate_on].visible , false);
+	</action>
+	<action name="SansControlBarShowAutorotationButtons">
+		if(autorotate.enabled == false,
+			set(layer[SansControlBarbtn_autorotate_off].visible, false);
+			set(layer[SansControlBarbtn_autorotate_on].visible , true);
+		,
+			set(layer[SansControlBarbtn_autorotate_off].visible, true);
+			set(layer[SansControlBarbtn_autorotate_on].visible , false);
+		);
+	</action>
+	<action name="SansControlBarupdateAutorotationButtons">
+		if (SansControlBarIsOpened,
+			SansControlBarShowAutorotationButtons();
+		,
+			SansControlBarHideAutorotationButtons();
+		);
+	</action>
+
+
+
+<layer name="SansControlBarmenuTooltipStyle"
+	keep="true"
+	enabled="false"
+	capture="false"
+	url="%FIRSTXML%/graphics/textfield.swf"
+	align="center"
+	background="false"
+	border="false"
+	css="color:#000000;font-family:Helvetica;font-weight:bold;font-size:14px;text-align:left;"
+	height="20"
+	autoheight="true"
+	autowidth="auto"
+	xoffset="0"
+	yoffset="0"
+	padding="2"
+	selectable="false"
+	zorder="0"
+	visible="false"
+	html=""
+	edge="bottom"
+/>
+  <action name="SansControlBarbuildMenu">
+    
+    set(SansControlBarbutton_pos, 0);
+
+	set(SansControlBarbackgroundwidthwhenclosed, 40);
+    set(layer[SansControlBarbtn_hidecontrols].x, get(SansControlBarbutton_pos));
+    set(layer[SansControlBarbtn_showcontrols].x, get(SansControlBarbutton_pos));
+    inc(SansControlBarbutton_pos, 45);
+
+
+
+      if (device.desktop,
+        set(layer[SansControlBarbtn_display_help].x, get(SansControlBarbutton_pos));
+        set(layer[SansControlBarbtn_close_help].x  , get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+      );
+
+      if (device.fullscreensupport,
+        set(layer[SansControlBarbtn_openfs].x , get(SansControlBarbutton_pos));
+        set(layer[SansControlBarbtn_closefs].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+      );
+
+
+
+      set(layer[SansControlBarbtn_autorotate_on].x , get(SansControlBarbutton_pos));
+      set(layer[SansControlBarbtn_autorotate_off].x, get(SansControlBarbutton_pos));
+      inc(SansControlBarbutton_pos, 45);
+
+
+
+    if (device.desktop,
+      set(layer[SansControlBarbtn_ctrlmode_drag_to].x, get(SansControlBarbutton_pos));
+      set(layer[SansControlBarbtn_ctrlmode_move_to].x, get(SansControlBarbutton_pos));
+      inc(SansControlBarbutton_pos, 45);
+    );
+
+
+    if(plugin[ptpvrmode] AND device.html5,
+      set(layer[SansControlBarbtn_enter_vr].x, get(SansControlBarbutton_pos));
+      set(layer[SansControlBarbtn_enter_vr_not].x, get(SansControlBarbutton_pos));
+      inc(SansControlBarbutton_pos, 45);
+    );
+
+
+      if(plugin[gyroscope],
+        set(SansControlBarDisplayGyroscopeButton, false);
+        if (device.tablet, set(SansControlBarDisplayGyroscopeButton, true););
+        if (device.mobile, set(SansControlBarDisplayGyroscopeButton, true););
+        if(SansControlBarDisplayGyroscopeButton,
+          set(layer[SansControlBarbtn_gyroscope_on].x , get(SansControlBarbutton_pos));
+          set(layer[SansControlBarbtn_gyroscope_off].x, get(SansControlBarbutton_pos));
+          set(layer[SansControlBarbtn_gyroscope_not].x, get(SansControlBarbutton_pos));
+          inc(SansControlBarbutton_pos, 45);
+        );
+      );
+
+
+      if (device.desktop,
+        set(layer[SansControlBarbtn_right].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+        set(layer[SansControlBarbtn_left].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+      );
+
+      if (device.desktop,
+        set(layer[SansControlBarbtn_down].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+        set(layer[SansControlBarbtn_up].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+      );
+
+      if (device.desktop,
+        set(layer[SansControlBarbtn_out].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+        set(layer[SansControlBarbtn_in].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+      );
+
+    if (scene.count GT 1,
+        set(layer[SansControlBarbtn_next_pano].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+        set(layer[SansControlBarbtn_prev_pano].x, get(SansControlBarbutton_pos));
+        inc(SansControlBarbutton_pos, 45);
+      );
+
+
+
+      dec(SansControlBarbutton_pos, 5);
+
+      set(SansControlBarbackgroundwidthwhenopened, get(SansControlBarbutton_pos));
+
+
+    
+      set(layer[SansControlBar_menu_bg].width, get(SansControlBarbackgroundwidthwhenopened));
+	
+	
+	
+    </action>
+
+	<events name="SansControlBarStartTourEvents" onTourStart="SansControlBarCallOnStartTour();" keep="true" />
+	
+	<action name="SansControlBarCallOnStartTour">
+		
+		SansControlBarshowMenuControls();
+	</action>
+
+
+
+<!-- ********** -->
+<!-- Force Landscape on Mobile -->
+<!-- id : ForceLandscapeMobilePlugin -->
+<!-- ********** -->
+
+	<events name="mobileorientation_events" devices="mobile" keep="true" onresize="mobileorientation_portrait_mode_check();"/>
+
+	<action name="mobileorientation_portrait_mode_check" device="mobile">
+		div(aspect, stagewidth, stageheight);
+		if(aspect != lastaspect OR '%1' == 'true',
+			copy(lastaspect, aspect);
+			if(stagewidth GT stageheight,
+				tween(layer[mobileorientation_rotate_device_required].alpha, 0.0, 0.0);
+			,
+				tween(layer[mobileorientation_rotate_device_required].alpha, 1.0);
+				delayedcall(3.0, tween(layer[mobileorientation_rotate_device_required].alpha, 0.0, 1.0););
+			);
+		);
+	</action>	
+
+	<layer name="mobileorientation_rotate_device_required" keep="true" devices="mobile" 
+		url="%FIRSTXML%/graphics/rotate_device.png" width="80%" height="prop"
+		align="center" edge="center"
+		autoalpha="true" alpha="0.0"
+		enabled="false"
+		/>	
+<!-- ********** -->
+<!-- Panorama Combobox -->
+<!-- id : panoramacombobox -->
+<!-- ********** -->
+
+  <!-- path to the scrollarea plugin -->
+  <panoramacombobox_kr_scrollareaplugin
+    url.html5="%FIRSTXML%/graphics/scrollarea.js"
+    url.flash="%FIRSTXML%/graphics/scrollarea.swf"
+    />
+
+  <!-- core internal layer styles -->
+  <style name="panoramacombobox_kr_container_style" type="container" maskchildren="true" bgcapture="true" visible="false" onclick="panoramacombobox_kr_onclick_event();" mergedalpha="false" alpha="1.0" />
+  <style name="panoramacombobox_kr_marker_style" type="text" align="righttop" edge="center" html="▼" havemarkersize="false" onautosized="set(havemarkersize,true);" mergedalpha="false" alpha="1.0" />
+  <style name="panoramacombobox_kr_item_style"  type="text" wordwrap="false" vcenter="true" align="lefttop" onover="if(!combbox_item_pressed,onoveritem());asyncloop(hovering,,if(!combbox_item_pressed,onoutitem()));" ondown="onoveritem(); set(combbox_item_pressed,true);" onup="onoutitem(); set(combbox_item_pressed,false);" onoveritem="set(bg,true);" onoutitem="set(bg,false);" mergedalpha="false" alpha="1.0" />
+
+  <panoramacombobox_kr_design name="rounded" margin="3" open_close_speed="0.25">
+    <style name="panoramacombobox_kr_container_style" bgcolor="0xFFFFFF" bgalpha="0.95" bgborder="1 0xFFFFFF 0.5" bgroundedge="5" bgshadow="2 4 20 0x000000 0.5" />
+    <style name="panoramacombobox_kr_marker_style" css="color:#999999;" bg="false" txtshadow="" />
+    <style name="panoramacombobox_kr_item_style" css="color:#222222;" padding="4" bg="false" bgcolor="0x2277FF" bgalpha="0.25" bgroundedge="3" txtshadow="" onoveritem="set(bg,true); set(bgborder, '1 0x333333 0.1');" onoutitem="set(bg,false); set(bgborder, '1 0x333333 0.0');" />
+  </panoramacombobox_kr_design>
+
+  <!-- internal events -->
+  <events name="panoramacombobox_kr_xml_plugin_events" keep="true"
+    onxmlcomplete="panoramacombobox_kr_parse_xml_elements();"
+    onresize="panoramacombobox_kr_closelist();"
+    />
+
+  <!-- krpano version check -->
+  <action name="panoramacombobox_kr_versioncheck" autorun="preinit">
+    if(build LT '2017-09-13',
+      error('combobox.xml - too old krpano version!');
+      set(events[panoramacombobox_kr_xml_plugin_events].name, null);
+      set(action[panoramacombobox_kr_addComboboxLayer].content, '');
+      set(action[panoramacombobox_kr_removeComboboxLayer].content, '');
+    );
+  </action>
+
+  <action name="panoramacombobox_kr_parse_xml_elements" scope="local">
+        copy(cb, combobox["panoramacombobox"]);
+        if(cb AND cb.name AND cb.parsed != true,
+          set(cb.parsed, true);
+          panoramacombobox_kr_addComboboxLayer(get(cb.name), get(cb.design));
+          copy(ly, layer[get(cb.name)]);
+          copyattributes(get(ly), get(cb));
+          set(ly.keep, true);
+          def(item_cnt, integer, get(cb.item.count));
+          if(item_cnt GT 0,
+            def(item_i, integer, 0);
+            loop(item_i LT  item_cnt,
+              panoramacombobox_kr_additem(get(ly.name), get(cb.item[get(item_i)].name), get(cb.item[get(item_i)].caption), get(cb.item[get(item_i)].onclick));
+              inc(item_i);
+            );
+          );
+        );
+  </action>
+
+  <!-- dynamically add a combobox layer -->
+  <action name="panoramacombobox_kr_addComboboxLayer" scope="local" args="cbname, design">
+    <!-- create the layer -->
+    addlayer(get(cbname));
+    copy(cb, layer[get(cbname)]);
+    set(cb.keep, true);
+
+    <!-- copy the design settings (or set defaults) -->
+    if(!panoramacombobox_kr_design[get(design)].name, set(design,'default'));
+    copy(cb.cbdesign, panoramacombobox_kr_design[get(design)]);
+    calc(cb.margin, cb.cbdesign.margin !== null ? cb.cbdesign.margin : 2);
+    calc(cb.open_close_speed, cb.cbdesign.open_close_speed !== null ? cb.cbdesign.open_close_speed : 0.25);
+    <!-- load the styles and copy the design style settings -->
+    cb.loadstyle(panoramacombobox_kr_container_style);
+    copyattributes(get(cb), get(cb.cbdesign.style[panoramacombobox_kr_container_style]));
+
+    <!-- add/build/map actions -->
+    calc(cb.addItem,          'panoramacombobox_kr_additem(' + cbname + ', null, "%%1", "%%2");');
+    calc(cb.addNamedItem,     'panoramacombobox_kr_additem(' + cbname + ', "%%1", "%%2", "%%3");');
+    calc(cb.addIdItem,        'panoramacombobox_kr_additem(' + cbname + ', "%%1", "%%2", "%%3");');
+    calc(cb.selectItem,       'panoramacombobox_kr_finditem(' + cbname + ', "%%1", __cb_fi); if(__cb_fi GE 0, panoramacombobox_kr_selectitem(' + cbname + ', get(__cb_fi))); delete(__cb_fi);');
+    calc(cb.selectItemByName, 'panoramacombobox_kr_selectitem(' + cbname + ', "%%1");');
+    calc(cb.selectIdItem,     'panoramacombobox_kr_selectitem(' + cbname + ', "%%1");');
+    calc(cb.removeAll,        'panoramacombobox_kr_removeitems(' + cbname + ');');
+    calc(cb.openList,         'panoramacombobox_kr_openlist(' + cbname + ');');
+    calc(cb.closeList,        'panoramacombobox_kr_closelist(' + cbname + ');');
+
+    <!-- create sub-layers -->
+    def(saname, string, 'panoramacombobox_kr_%1_scrollarea');
+    addlayer(get(saname));
+    copy(sa, layer[get(saname)]);
+    copy(sa.parent, cbname);
+    copy(sa.url, panoramacombobox_kr_scrollareaplugin.url);
+    copy(sa.keep, true);
+    copy(sa.align, lefttop);
+    set(sa.direction, v);
+    set(sa.enabled, false);
+    set(sa.width, 100%);
+    set(sa.height, 100%);
+    copy(cb.scrollarea, sa);
+
+    def(mkname, string, 'panoramacombobox_kr_%1_marker');
+    addlayer(get(mkname));
+    copy(mk, layer[get(mkname)]);
+    copy(mk.parent, saname);
+    copy(mk.keep, true);
+    mk.loadstyle(panoramacombobox_kr_marker_style);
+    copyattributes(get(mk), get(cb.cbdesign.style[panoramacombobox_kr_marker_style]));
+    copy(cb.marker, mk);
+
+    <!-- item data array -->
+    cb.createarray('item');
+
+    <!-- item autosizing information -->
+    set(cb.autosize_i, 0);
+    set(cb.autosize_cnt, 0);
+    set(cb.autosize_max_w, 0);
+    set(cb.autosize_max_h, 0);
+
+    set(cb.lastselecteditemindex, 0);
+    set(cb.selecteditemindex, 0);
+  </action>
+
+
+  <!-- dynamically remove a combobox element -->
+  <action name="panoramacombobox_kr_removeComboboxLayer" scope="local" args="cbname">
+    if(layer[get(cbname)],
+      copy(cb, layer[get(cbname)]);
+      if(cb === global.openedcombobox, delete(global.openedcombobox));
+      if(cb,
+        removelayer(get(cbname), true);
+      );
+    );
+  </action>
+
+
+  <!-- default onclick event for combobox elements: open the list -->
+  <action name="panoramacombobox_kr_onclick_event">
+    panoramacombobox_kr_openlist(get(name));
+  </action>
+
+
+  <!-- dynamically add items -->
+  <action name="panoramacombobox_kr_additem" scope="local" args="cbname, itemname, itemcaption, itemonclick">
+    copy(cb, layer[get(cbname)]);
+
+    <!-- when no item name is set, generate an automatic one -->
+    if(itemname === null, calc(itemname, 'autoname_' + cb.item.count); );
+
+    <!-- save the item caption and onclick event -->
+    copy(cb.item[get(itemname)].caption, itemcaption);
+    copy(cb.item[get(itemname)].onclick, itemonclick);
+
+    inc(cb.autosize_cnt);
+
+    <!-- create the item layer/textfield -->
+    calc(itemlayername, 'comboboxitem_' + cbname + '_' + itemname);
+    addlayer(get(itemlayername));
+    copy(li, layer[get(itemlayername)]);
+
+
+
+    li.loadstyle(panoramacombobox_kr_item_style);
+    copyattributes(get(li), get(cb.cbdesign.style[panoramacombobox_kr_item_style]));
+
+
+
+
+    copy(li.parent, cb.scrollarea.name);
+    copy(li.keep, true);
+    copy(li.cblayername, cb.name);
+    copy(li.itemname, itemname);
+    copy(li.html, itemcaption);
+    set(li.onautosized, delayedcall(0,panoramacombobox_kr_item_autosize_update()) );
+    set(li.onclick, panoramacombobox_kr_item_onclick() );
+
+    copy(cb.item[get(itemname)].itemlayername, itemlayername);
+  </action>
+
+
+  <!-- onautosized callback from the item textfield -->
+  <action name="panoramacombobox_kr_item_autosize_update" scope="local">
+    copy(cb, layer[get(caller.cblayername)]);
+    inc(cb.autosize_i);
+    Math.max(cb.autosize_max_w, caller.width);
+    Math.max(cb.autosize_max_h, caller.height);
+    if(cb.autosize_i == cb.autosize_cnt, panoramacombobox_kr_align_items(get(cb.name)); );
+  </action>
+
+
+  <!-- align the image and set the combobox size -->
+  <action name="panoramacombobox_kr_align_items" scope="local" args="cbname">
+    copy(cb, layer[get(cbname)]);
+    if(cb.marker.havemarkersize == false OR cb.scrollarea.loaded == false,
+      <!-- wait until everything is ready -->
+      delayedcall(calc(cb.name + '_waitformarkersize'), 0.01, panoramacombobox_kr_align_items(get(cbname)) );
+      ,
+      <!-- set the item positions and the combobox size -->
+      if(global.openedcombobox === cb, panoramacombobox_kr_closelist() );
+      copy(sa, cb.scrollarea);
+      calc(itemwidth, cb.margin GT 0 ? -2 * cb.margin : '100%');
+      copy(mk_w, cb.marker.width);
+      copy(item_cnt, cb.autosize_cnt);
+
+      for(def(item_i, integer, 0), item_i LT item_cnt, inc(item_i),
+        copy(li, layer[get(cb.item[get(item_i)].itemlayername)]);
+        set(li.x, get(cb.margin));
+        copy(li.width, itemwidth);
+        copy(li.height, cb.autosize_max_h);
+        calc(li.y, cb.margin + item_i * (cb.autosize_max_h + cb.margin));
+      );
+
+      if(cb.width == null OR cb.width == cb.lastautosizedwidth,
+        <!-- no combobox width (or an autosized width) set - set the largest item width -->
+        calc(cb.width, cb.margin + cb.autosize_max_w + 2 + mk_w + cb.margin);
+        copy(cb.lastautosizedwidth, cb.width);
+      );
+
+      calc(cb.height, 2*cb.margin + cb.autosize_max_h);
+      calc(sa.height, cb.margin + item_cnt*(cb.margin+cb.autosize_max_h));
+      calc(sa.y, -(cb.selecteditemindex * (cb.autosize_max_h + cb.margin)));
+      calc(cb.marker.x, cb.margin + mk_w/2);
+      tween(layer[get(cb.name)].marker.y, calc(cb.margin + cb.selecteditemindex*(cb.autosize_max_h + cb.margin) + cb.autosize_max_h/2), 0.1);
+    );
+  </action>
+
+
+  <!-- default onclick event for items: select the current item, close the list and call the item onclick event -->
+  <action name="panoramacombobox_kr_item_onclick" scope="local">
+    copy(cb, layer[get(caller.cblayername)]);
+    copy(itemname, caller.itemname);
+    panoramacombobox_kr_selectitem(get(cb.name), get(itemname));
+
+    if(global.openedcombobox === cb, panoramacombobox_kr_closelist() );
+
+    if(cb.item[get(itemname)].onclick,
+      <!-- call the onclick event after the combobox has closed -->
+      delayedcall(get(cb.open_close_speed),
+        copy(cb.curitem, cb.item[get(itemname)]);
+        callwith(cb,
+          cb.item[get(itemname)].onclick();
+        );
+      );
+    );
+  </action>
+
+
+  <!-- select an item -->
+  <action name="panoramacombobox_kr_selectitem" scope="local" args="cbname, itemname">
+    if(global.combbox_item_pressed != true,
+      copy(cb, layer[get(cbname)]);
+      copy(cb.lastselecteditemindex, cb.selecteditemindex);
+      copy(cb.selecteditemindex, cb.item[get(itemname)].index);
+      <!-- call onchange event on selection change -->
+      if(cb.lastselecteditemindex != cb.selecteditemindex AND cb.onchange,
+        callwith(cb, onchange() );
+      );
+      if(global.openedcombobox === cb,
+        <!-- when opened, just close to the selected item -->
+        panoramacombobox_kr_closelist();
+        ,
+        if(layer[get(cbname)].scrollarea.loaded,
+          layer[get(cbname)].scrollarea.stopscrolling();
+          calc(offset, cb.selecteditemindex*(cb.autosize_max_h + cb.margin));
+          tween(layer[get(cbname)].marker.y, calc(cb.margin + offset + cb.autosize_max_h/2), 0);
+          tween(layer[get(cbname)].scrollarea.y, calc(-offset), 0, default, layer[get(cbname)].scrollarea.update(); );
+        );
+      );
+    );
+  </action>
+
+
+  <!-- find an item by its caption, the global variable defined in 'returnvariable' will contain the index  -->
+  <action name="panoramacombobox_kr_finditem" scope="local" args="cbname, itemcaption, returnvariable">
+    copy(cb, layer[get(cbname)]);
+    copy(item_cnt, cb.item.count);
+    set(calc('global.' + returnvariable), -1);
+    for(def(item_i, integer, 0), item_i LT  item_cnt, inc(item_i),
+      if(cb.item[get(item_i)].caption == itemcaption,
+        copy(calc('global.' + returnvariable), item_i);
+        copy(item_i, item_cnt);
+      );
+    );
+  </action>
+
+
+  <!-- remove all items (to be able to add new ones) -->
+  <action name="panoramacombobox_kr_removeitems" scope="local" args="cbname">
+    copy(cb, layer[get(cbname)]);
+    if(global.openedcombobox === cb, panoramacombobox_kr_closelist() );
+
+    <!-- remove all item layers -->
+    calc(item_i, cb.item.count - 1);
+    loop(item_i GE 0,
+      removelayer(get(cb.item[get(item_i)].itemlayername));
+      dec(item_i);
+    );
+
+    <!-- reset the item information -->
+    set(cb.item.count, 0);
+    set(cb.autosize_i,0);
+    set(cb.autosize_cnt, 0);
+    set(cb.autosize_max_w, 0);
+    set(cb.autosize_max_h, 0);
+    set(cb.selecteditemindex, 0);
+    set(cb.lastselecteditemindex, 0);
+    if(cb.width == cb.lastautosizedwidth, set(cb.width, null));
+  </action>
+
+
+  <!-- open the combobox list -->
+  <action name="panoramacombobox_kr_openlist" scope="local" args="cbname">
+    <!-- if another combobox is already open, close that one first -->
+    if(global.openedcombobox !== null, panoramacombobox_kr_closelist() );
+
+    copy(cb, layer[get(cbname)]);
+    copy(global.openedcombobox, cb);
+
+    <!-- find the available screen space above or below the combobox -->
+    calc(cbheight, 2*cb.margin + cb.autosize_max_h);
+    set(lx1, 0);
+    set(ly1, 0);
+    copy(lx2, cb.pixelwidth);
+    copy(ly2, cbheight);
+    layertoscreen(get(cbname), lx1,ly1, lx1,ly1);
+    layertoscreen(get(cbname), lx2,ly2, lx2,ly2);
+    calc(space_above, ly1 - area.pixely);
+    calc(space_below, area.pixelheight - (ly2 - area.pixely));
+
+    <!-- the required space for full opening: -->
+    calc(openheight, cb.margin + cb.autosize_cnt*(cb.margin+cb.autosize_max_h) );
+
+    <!-- vertical centered alignment? -->
+    calc(cb_edge, cb.edge ? cb.edge : cb.align);
+    calc(iscentered, cb_edge == 'left' OR cb_edge == 'center' OR cb_edge == 'right');
+    if(iscentered,
+      calc(openheight_max, space_above + space_below);
+      ,
+      Math.max(openheight_max, space_above, space_below);
+    );
+
+    <!-- limit the height to the available space (minus some margin) -->
+    Math.min(openheight, calc(openheight_max + cbheight - 20));
+
+    <!-- need vertical offset? (depending on the available space and the align/edge setting) -->
+    set(yoffset, null);
+    calc(top_overflow, -ly1 + area.pixely + openheight/2);
+    calc(bottom_overflow, ly2 - area.pixely + openheight/2 - area.pixelheight);
+    if(cb.parent,
+      <!-- no vertical offset inside other layers, do only a height clipping -->
+      Math.max(max_overflow, top_overflow, bottom_overflow, 0);
+      sub(openheight, max_overflow);
+      ,
+      if(iscentered,
+        if(openheight GE (area.pixelheight - 20),
+          set(yoffset,0);
+          ,
+          if(top_overflow GT 0, calc(yoffset, cb.y + top_overflow); );
+          if(bottom_overflow GT 0, calc(yoffset, cb.y - bottom_overflow); );
+        );
+      ,
+        indexoftxt(isbottomalign, get(cb_edge), 'bottom');
+        if(space_above GT space_below,
+          if(isbottomalign LT 0, calc(yoffset, cb.y - openheight + cbheight); );
+          ,
+          if(isbottomalign GE 0, calc(yoffset, cb.y - openheight + cbheight); );
+        );
+      );
+    );
+    if(yoffset != null,
+      copy(cb.ybackup, cb.y);
+      tween(layer[get(cbname)].y, calc(yoffset), get(cb.open_close_speed));
+    );
+
+    <!-- center the opened list at the selected item -->
+    calc(centeritem_y, -1 * (cb.margin + cb.selecteditemindex*(cb.margin+cb.autosize_max_h) + cb.autosize_max_h/2 - openheight/2));
+    clamp(centeritem_y, calc(openheight - cb.scrollarea.height), 0);
+
+    <!-- apply the changes now -->
+    tween(layer[get(cbname)].height, get(openheight), get(cb.open_close_speed));
+    tween(layer[get(cbname)].scrollarea.y, get(centeritem_y), get(cb.open_close_speed), default, layer[get(cbname)].scrollarea.update(); );
+
+    <!-- special html5/flash case:
+       rotating textfields (the marker symbol here) are not possible in
+       flash (a flashplayer limitation), so use a rotated symbol instead.
+    -->
+    if(device.html5,
+      tween(layer[get(cbname)].marker.rotate, 90, get(cb.open_close_speed));
+      ,
+      set(layer[get(cbname)].marker.html, '◀');
+    );
+
+    <!-- enable the scrollarea to allow the user to drag it -->
+    set(cb.scrollarea.enabled, true);
+
+    <!-- install a global onmousedown event to close the list when clicking at the pano -->
+    set(events[panoramacombobox_kr_xml_plugin_events].onmousedown, panoramacombobox_kr_closelist() );
+  </action>
+
+
+  <!-- close the current open list -->
+  <action name="panoramacombobox_kr_closelist" scope="local">
+    if(global.openedcombobox !== null,
+      copy(cb, global.openedcombobox);
+      delete(global.openedcombobox);
+
+      <!-- clear the global onmousedown event -->
+      set(events[panoramacombobox_kr_xml_plugin_events].onmousedown, null);
+
+      <!-- disable the dragging -->
+      set(cb.scrollarea.enabled, false);
+
+      <!-- closing animations -->
+      calc(offset, cb.selecteditemindex*(cb.autosize_max_h + cb.margin));
+      if(cb.ybackup !== null, tween(cb.y, get(cb.ybackup), get(cb.open_close_speed)));
+      layer[get(cb.name)].scrollarea.stopscrolling();
+      tween(layer[get(cb.name)].height, calc(2*cb.margin + cb.autosize_max_h), get(cb.open_close_speed));
+      tween(layer[get(cb.name)].scrollarea.y, calc(-offset), get(cb.open_close_speed), default, layer[get(cb.name)].scrollarea.update(); );
+      tween(layer[get(cb.name)].marker.y, calc(cb.margin + offset + cb.autosize_max_h/2), get(cb.open_close_speed));
+      <!-- special html5/flash case: rotate marker or change symbol -->
+      if(device.html5,
+        tween(layer[get(cb.name)].marker.rotate, 0, get(cb.open_close_speed));
+        ,
+        set(layer[get(cb.name)].marker.html, '▼');
+      );
+    );
+  </action>
+
+  <events name="panoramacomboboxStartTourEvents" onTourStart="set(layer[panoramacombobox].isStarted, true);if(layer[panoramacombobox].isLoaded,panoramacomboboxShow(););" keep="true" />
+
+
+  <combobox name="panoramacombobox"
+    design=""
+    keep="true"
+    visible="false"
+    zorder="3"
+    align="topright"
+    x="5" y="10"
+    width="200"
+    onloaded="panoramacomboboxLoaded();"
+    isStarted="false"
+    isLoaded="false"
+    />
+
+  <action name="panoramacomboboxLoaded">
+
+    layer[panoramacombobox].removeAll();
+
+
+    panoramacomboboxAddItem(pano101_title, pano101, pano101, false);
+    panoramacomboboxAddItem(pano87_title, pano87, pano87, false);
+    panoramacomboboxAddItem(pano89_title, pano89, pano89, false);
+    panoramacomboboxAddItem(pano91_title, pano91, pano91, false);
+    panoramacomboboxAddItem(pano93_title, pano93, pano93, false);
+    panoramacomboboxAddItem(pano97_title, pano97, pano97, false);
+    panoramacomboboxAddItem(pano201_title, pano201, pano201, false);
+    panoramacomboboxAddItem(pano319_title, pano319, pano319, false);
+    panoramacomboboxAddItem(pano321_title, pano321, pano321, false);
+    set(layer[panoramacombobox].isLoaded, true);
+
+    if(layer[panoramacombobox].isStarted,
+      panoramacomboboxShow();
+    );
+  </action>
+
+
+  <action name="panoramacomboboxAddItem">
+    getmessage(caption, %1);
+
+    indexoftxt(found, get(caption), '&amp;');
+    if(found GE 0,
+      subtxt(part1, get(caption), 0, get(found));
+      add(found, 1);
+      subtxt(part2, get(caption), get(found), get(caption.length));
+      txtadd(caption, get(part1), '&amp;', get(part2));
+    );
+    if(%4,
+      txtadd(title, "&#x00A0;&#x00A0;&#x00A0;", get(caption));
+    ,
+      set(title, get(caption));
+    );
+
+    layer[panoramacombobox].addNamedItem(%2, get(title), mainloadscene(%3));
+  </action>
+
+  <action name="panoramacomboboxUpdateLanguage">
+    layer[panoramacombobox].closeList();
+    layer[panoramacombobox].removeAll();
+
+    panoramacomboboxAddItem(pano101_title, pano101, pano101, false);
+    panoramacomboboxAddItem(pano87_title, pano87, pano87, false);
+    panoramacomboboxAddItem(pano89_title, pano89, pano89, false);
+    panoramacomboboxAddItem(pano91_title, pano91, pano91, false);
+    panoramacomboboxAddItem(pano93_title, pano93, pano93, false);
+    panoramacomboboxAddItem(pano97_title, pano97, pano97, false);
+    panoramacomboboxAddItem(pano201_title, pano201, pano201, false);
+    panoramacomboboxAddItem(pano319_title, pano319, pano319, false);
+    panoramacomboboxAddItem(pano321_title, pano321, pano321, false);
+
+    panoramacomboboxUpdateList();
+  </action>
+
+  <events name="panoramacomboboxEvents"
+    hidetourcontrols="panoramacomboboxHide();"
+    showtourcontrols="panoramacomboboxShow();"
+    onnewpano="panoramacomboboxOnPanorama();"
+    changetourlanguage="panoramacomboboxUpdateLanguage();"
+    keep="true"
+    />
+
+  <action name="panoramacomboboxHide">
+    set(layer[panoramacombobox].visible, false);
+  </action>
+
+  <action name="panoramacomboboxShow">
+  if(layer[panoramacombobox].isLoaded,
+    if (layer[panoramacombobox].item.count GT 0,
+      set(layer[panoramacombobox].visible, true);
+    ,
+      set(layer[panoramacombobox].visible, false);
+    );
+  ,
+    set(layer[panoramacombobox].visible, false);
+  );
+  </action>
+
+  <action name="panoramacomboboxOnPanorama">
+    if(layer[panoramacombobox].isLoaded,
+      panoramacomboboxUpdateList();
+    ,
+      delayedcall(0.2, panoramacomboboxOnPanorama);
+    );
+  </action>
+
+  <action name="panoramacomboboxUpdateList">
+    set(itemtoselect, get(scene[get(xml.scene)].name));
+    layer[panoramacombobox].selectItemByName(get(itemtoselect));
+  </action>
+
+  <action name="panoramacomboboxOpenComboboxList">
+    layer[panoramacombobox].openList();
+  </action>
+
+  <action name="panoramacomboboxCloseComboboxList">
+    layer[panoramacombobox].closeList();
+  </action>
+
+<!-- ********** -->
+<!-- Loading Information -->
+<!-- id : loaderinfo -->
+<!-- ********** -->
+
+  <events name="loaderinfoevent" onxmlcomplete="loaderinfoupdate();" keep="true"/>
+
+  <action name="loaderinfoupdate">
+    if(scene[get(xml.scene)].video,
+      set(layer[loaderinfotextfield].visible, false);
+    ,
+      if (progress.progress == 1,
+        delayedcall(0.5, set(layer[loaderinfotextfield].visible, false); );
+      ,
+        set(layer[loaderinfotextfield].visible, true);
+      );
+      mul(progresstext, get(progress.progress),100);
+      roundval(progresstext);
+      txtadd(progresstext, get(progresstext), %);
+      set(layer[loaderinfotextfield].html, get(progresstext));
+      ifnot(progress.progress GE 1, delayedcall(0.01, loaderinfoupdate() ));
+    );
+  </action>
+
+  <layer name="loaderinfotextfield"
+         keep="true"
+         zorder="4"
+         type="text"
+         align="top"
+         x="0"
+         y="0"
+         bgborder="0"
+         bg="false"
+         capture="false"
+         handcursor="false"
+         interactivecontent="false"
+         alpha="1"
+         visible="true"
+         css="
+         text-align:center;
+         color:#ffffff;
+         font-family:TeamViewer15;
+         font-weight:bold;
+         font-size:16px;
+         "
+  />
+
+<!-- ********** -->
+<!-- Include an XML file -->
+<!-- id : includePlugin -->
+<!-- ********** -->
+
+
+<!-- ********** -->
+<!-- Context menu -->
+<!-- id : contextmenu -->
+<!-- ********** -->
+  <contextmenu fullscreen="false" versioninfo="false" touch="true">
+    <item name="fullscreenentry" onclick="enterFullscreen();
+" separator="true"/>
+  </contextmenu>
+
+  <events name="contextmenuevents" keep="true" 
+    onenterfullscreen="updateContextMenu" onexitfullscreen="updateContextMenu" 
+    onxmlcomplete="updateContextMenu" 
+    changetourlanguage="updateContextMenu" 
+    />
+  <events name="contextmenuvrevents" keep="true" 
+    onvravailable="updateContextMenu();" onvrunavailable="updateContextMenu();"
+    devices="html5"
+    />
+  <action name="updateContextMenu">
+    if (device.fullscreensupport,
+      if(tour_fullscreen,
+        getmessage(contextmenu.item[fullscreenentry].caption, contextmenucloseFsLabel);
+        set(contextmenu.item[fullscreenentry].onclick, exitFullscreen();
+);
+       ,
+        getmessage(contextmenu.item[fullscreenentry].caption, contextmenuopenFsLabel);
+        set(contextmenu.item[fullscreenentry].onclick, enterFullscreen();
+);
+      );
+     ,
+      set(contextmenu.item[fullscreenentry].visible, false);
+    );
+  </action>
+ <!-- ********** --> <!-- 360Images CoOL Hotspots Plugin --> <!-- CoOL Hotspots --> <!-- id : cool_hotspot --> <!-- ********** -->        <include url="%FIRSTXML%/graphics/coolhotspots.xml"/>   <style 	cooltype="bubble" 	name="Default Point Spot Style" 	type="container"  	width="25"  	height="25"  	bgalpha="0" 	bgcapture="true"   	accuracy="1" 	bubble_width="25"  	bubble_width_onover="75" 	alwayson="false" 	ttalign="top" 	ttedge="bottom" 	 	onover=" 	hidebbhs(); 	set(zorder,20); 	tween(width|height,get(bubble_width_onover)); 	tween(layer[get(mybubble)].width,get(bubble_width_onover)); 	tween(layer[get(mybubble)].height,get(bubble_width_onover)); 	tween(layer[get(mybubble_shadow)].width,get(bubble_width_onover)); 	tween(layer[get(mybubble_shadow)].height,get(bubble_width_onover)); 	tween(layer[get(mypreview)].alpha,1); 	set(layer[get(mypreview)].enabled,true); 	"     	onout=" 	set(zorder,2);  	tween(width|height,get(bubble_width)); 	tween(layer[get(mybubble)].width,get(bubble_width)); 	tween(layer[get(mybubble)].height,get(bubble_width)); 	tween(layer[get(mybubble_shadow)].width,get(bubble_width)); 	tween(layer[get(mybubble_shadow)].height,get(bubble_width)); 	ifnot(alwayson,tween(layer[get(mypreview)].alpha,0));  	set(layer[get(mypreview)].enabled,false);  	" 	 	onloaded=" 	txtadd(hotspot[get(name)].permanentTooltipForSpot, get(tooltip), '_permanent'); 	delayedcall(0.1, 	if(layer[get(permanentTooltipForSpot)].html, 		set(layer[get(permanentTooltipForSpot)].ox,0); 		set(layer[get(permanentTooltipForSpot)].oy,-10); 		); 	); 	 	txtadd(mybubble,'bubble',get(name)); 	addlayer(get(mybubble)); 	copy(hotspot[get(name)].mybubble,mybubble); 	layer[get(mybubble)].loadstyle(cool_hotspotbubblelayer); 	txtadd(mybubble_shadow,'bubble_shadow',get(name)); 	addlayer(get(mybubble_shadow)); 	copy(hotspot[get(name)].mybubble_shadow,mybubble_shadow); 	layer[get(mybubble_shadow)].loadstyle(cool_hotspotbubblelayer_shadow); 			 	txtadd(mypreview,'preview_',get(name)); 	addlayer(get(mypreview)); 	copy(hotspot[get(name)].mypreview,mypreview); 	 	 	if(linkedscene, 		set(layer[get(mypreview)].url,get(scene[get(linkedscene)].thumburl)); 	); 	if(linkedgroup, 		set(layer[get(mypreview)].url,get(panoramagroup[get(linkedgroup)].thumburl)); 	); 	if(photourl, 		set(layer[get(mypreview)].url,get(photourl)); 	); 	 	 	layer[get(mypreview)].loadstyle(cool_hotspotbubble_previewlayer); 	 	txtadd(parentlayer,'hotspot[',get(name),']'); 	copy(layer[get(mybubble)].parent,parentlayer); 	copy(layer[get(mybubble_shadow)].parent,parentlayer); 		 	txtadd(parentlayer2,'layer[',get(mybubble),']'); 	copy(layer[get(mypreview)].parent,parentlayer2); 		 	txtadd(clickaction,'callwith(hotspot[',get(name),'],onclick)'); 	copy(layer[get(mypreview)].onclick,clickaction);  	" /> <style  	name="cool_hotspotbubblelayer"  	type="container"  	width="25"  	height="25"  	bgalpha="0"  	bgborder="3 0xffffff 1.00"  	bgroundedge="75"   	bgcapture="true"  	maskchildren="true"  	accuracy="1" 	 	ondown.touch="callwith(get(parent),onover);delayedcall(0.6,callwith(get(parent),onclick));" 	  	align="center" 	 /> <style  	name="cool_hotspotbubblelayer_shadow"  	type="container"  	width="25"  	height="25"  	bgalpha="0"  	bgborder="0 0xffffff 0"  	bgroundedge="75"   	bgcapture="false"  	accuracy="1"  	align="center" 	 		bgshadow="5 5 10 0 0x000000 0.5 inset" 	 /> <style  	name="cool_hotspotbubble_previewlayer"  	align="center" 	accuracy="1" 	width="prop"  	height="75"  	enabled="false" 	onloaded="if(pixelheight GT pixelwidth,copy(width,height);set(height,prop));set(alpha,0)" />       
+<action name="viewControlMoveUp">
+	if(%1,
+		if(%2,
+			set(isfullvertical, false);
+			ifnot(scene[get(xml.scene)].planar,
+				sub(viewvfov, panoview.vmax, panoview.vmin);
+				if (viewvfov == 180,
+					set(isfullvertical, true);
+				);
+			);
+			if(isfullvertical == false AND calc(view.vlookat-%2) LT view.vlookatmin,
+				moveto(get(view.hlookat), get(view.vlookatmin));
+			,
+				moveto(get(view.hlookat), calc(view.vlookat-%2));
+			);
+		,
+			set(vlookat_moveforce, -1);
+			delayedcall(0.1, viewControlMoveVertStop());
+		);
+	,
+		set(vlookat_moveforce, -1);
+	);
+</action>
+<action name="viewControlMoveDown">
+	if(%1,
+		if(%2,
+			set(isfullvertical, false);
+			ifnot(scene[get(xml.scene)].planar,
+				sub(viewvfov, panoview.vmax, panoview.vmin);
+				if (viewvfov == 180,
+					set(isfullvertical, true);
+				);
+			);
+			if(sceneisfull360 == false AND calc(view.vlookat+%2) GT view.vlookatmax,
+				moveto(get(view.hlookat), get(view.vlookatmax));
+			,
+				moveto(get(view.hlookat), calc(view.vlookat+%2));
+			);
+		,
+			set(vlookat_moveforce, +1);
+			delayedcall(0.1, viewControlMoveVertStop());
+		);
+	,
+		set(vlookat_moveforce, +1);
+	);
+</action>
+<action name="viewControlMoveLeft">
+	if(%1,
+		if(%2,
+			set(isfullhorizontal, false);
+			ifnot(scene[get(xml.scene)].planar,
+				sub(viewhfov, panoview.hmax, panoview.hmin);
+				if (viewhfov == 360,
+					set(isfullhorizontal, true);
+				);
+			);
+			if(isfullhorizontal == false AND calc(view.hlookat-%2) LT view.hlookatmin,
+				moveto(get(view.hlookatmin), get(view.vlookat));
+			,
+				moveto(calc(view.hlookat-%2), get(view.vlookat));
+			);
+		,
+			set(hlookat_moveforce, -1);
+			delayedcall(0.1, viewControlMoveHoriStop());
+		);
+	,
+		set(hlookat_moveforce, -1);
+	);
+</action>
+<action name="viewControlMoveRight">
+	if(%1,
+		if(%2,
+			set(isfullhorizontal, false);
+			ifnot(scene[get(xml.scene)].planar,
+				sub(viewhfov, panoview.hmax, panoview.hmin);
+				if (viewhfov == 360,
+					set(isfullhorizontal, true);
+				);
+			);
+			if(isfullhorizontal == false AND calc(view.hlookat+%2) GT view.hlookatmax,
+				moveto(get(view.hlookatmax), get(view.vlookat));
+			,
+				moveto(calc(view.hlookat+%2), get(view.vlookat));
+			);
+		,
+			set(hlookat_moveforce, +1);
+			delayedcall(0.1, viewControlMoveHoriStop());
+			
+		);
+	,
+		set(hlookat_moveforce, +1);
+	);
+</action>
+<action name="viewControlMoveHoriStop">
+	set(hlookat_moveforce, 0);
+</action>
+<action name="viewControlMoveVertStop">
+	set(vlookat_moveforce, 0);
+</action>
+
+<action name="viewControlZoomIn">
+	if(%1,
+		if(%2,
+			if(%2 LT view.fovmin,
+				zoomto(get(view.fovmin));
+			,
+				if(%2 LT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, -1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, -1);
+	);
+</action>
+<action name="viewControlZoomOut">
+	if(%1,
+		if(%2,
+			if(%2 GT view.fovmax,
+				zoomto(get(view.fovmax));
+			,
+				if(%2 GT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, +1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, +1);
+	);
+</action>
+<action name="viewControlZoomStop">
+	set(fov_moveforce, 0);
+</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+  <action name="enableGyroscope">
+    changeGyroscopeState(true);
+  </action>
+  <action name="disableGyroscope">
+    changeGyroscopeState(false);
+  </action>
+
+
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+	<!-- WebVR plugin for VR availability tests -->
+
+	<plugin name="ptpvrmode" devices="html5" keep="true"
+		url="%FIRSTXML%/graphics/webvr.js"
+		mobilevr_support="true"
+		mobilevr_fake_support="false"
+		vr_cursor=""
+		vr_cursor_enabled="false"
+		onavailable="delayedcall(1, checkVrAvailability(););"
+		onunavailable="checkVrUnavailable();"
+		/>
+	<action name="checkVrAvailability">
+		if(plugin[ptpvrmode],
+			if (plugin[ptpvrmode].isavailable,
+				set(tour_vrdevices, true);
+				events.dispatch(onvravailable);
+			,
+				set(tour_vrdevices, false);
+			);
+		,
+			checkVrUnavailable();
+		);
+	</action>
+	<action name="checkVrUnavailable">
+		set(tour_vrdevices, false);
+		events.dispatch(onvrunavailable);
+	</action>
+</krpano>
